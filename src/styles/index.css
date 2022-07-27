@@ -47,14 +47,22 @@ input {
   background-color: #f99b5d;
   display: inline-block;
   border-radius: 5px;
-  margin: 10px;
-  padding: 5px;
+  margin: 2px;
+  padding: 2px;
 }
 
 .link-url {
   background-color: #78baec;
   display: inline-block;
   border-radius: 5px;
-  margin: 10px;
-  padding: 5px;
+  margin: 2px;
+  padding: 2px;
+}
+.logout {
+  background-color: #edcfa4;
+  border-radius: 5px;
+}
+.nav {
+  background-color: #bcd3e5;
+  border-radius: 5px;
 }

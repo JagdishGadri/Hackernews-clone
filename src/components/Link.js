@@ -84,9 +84,8 @@ const Link = (props) => {
         )}
       </div>
       <div className="ml1">
-        <div>
-          {link.description} ({link.url})
-        </div>
+        <div className="link-discription">{link.description}</div>
+        <div className="link-url">🔗{link.url}</div>
         {
           <div className="f6 lh-copy gray">
             {link.votes?.length} votes | by{" "}

@@ -3,6 +3,7 @@ import Link from "./Link";
 import { useQuery, gql } from "@apollo/client";
 import { LINKS_PER_PAGE } from "../constants";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../styles/App.css";
 
 const NEW_VOTES_SUBSCRIPTION = gql`
   subscription {
@@ -94,6 +95,7 @@ const LinkList = () => {
   const { data, loading, error, subscribeToMore } = useQuery(FEED_QUERY, {
     variables: getQueryVariables(isNewPage, page),
   });
+
   subscribeToMore({
     document: NEW_LINKS_SUBSCRIPTION,
     updateQuery: (prev, { subscriptionData }) => {
@@ -135,7 +137,7 @@ const LinkList = () => {
           {isNewPage && (
             <div className="flex ml4 mv3 gray">
               <div
-                className="pointer mr2"
+                className="pointer mr2 pagination-button"
                 onClick={() => {
                   if (page > 1) {
                     navigate(`/new/${page - 1}`);
@@ -145,7 +147,7 @@ const LinkList = () => {
                 Previous
               </div>
               <div
-                className="pointer"
+                className="pointer pagination-button"
                 onClick={() => {
                   if (page <= data.feed.count / LINKS_PER_PAGE) {
                     const nextPage = page + 1;

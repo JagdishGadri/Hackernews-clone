@@ -19,7 +19,7 @@ const LOGIN_MUTATION = gql`
   }
 `;
 
-const Login = () => {
+const Login = ({ setUserCred }) => {
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     login: true,
@@ -35,6 +35,11 @@ const Login = () => {
     },
     onCompleted: ({ signup }) => {
       localStorage.setItem(AUTH_TOKEN, signup.token);
+
+      setUserCred({
+        email: formState.email,
+        password: formState.password,
+      });
       navigate("/");
     },
   });
@@ -45,6 +50,11 @@ const Login = () => {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
+
+      setUserCred({
+        email: formState.email,
+        password: formState.password,
+      });
       navigate("/");
     },
   });
